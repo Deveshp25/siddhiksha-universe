@@ -70,6 +70,8 @@ const cardOffsets = [
   "lg:-translate-y-10",
 ];
 
+const thirdBookLaunchWindow = "Launching in 1-2 Weeks";
+
 function BookCover({
   coverTone,
   imageKey,
@@ -168,6 +170,58 @@ export function BookShowcaseCard({
   );
 }
 
+function ThirdBookTeaserCard() {
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <motion.article
+      whileHover={prefersReducedMotion ? undefined : { y: -8, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 150, damping: 24, mass: 0.75 }}
+      className="group relative sm:col-span-2"
+      data-cursor="card"
+    >
+      <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle,rgba(94,188,224,0.18),transparent_68%)] opacity-0 blur-2xl transition duration-700 group-hover:opacity-100" />
+      <div className="relative grid overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-background/62 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl transition duration-700 group-hover:border-foreground/18 group-hover:shadow-[0_36px_96px_rgba(0,0,0,0.20)] dark:bg-white/[0.045] dark:shadow-[0_28px_80px_rgba(0,0,0,0.36)] sm:grid-cols-[0.76fr_1.24fr] sm:gap-6">
+        <div className="relative min-h-72 overflow-hidden rounded-[1rem] border border-white/16 bg-[radial-gradient(circle_at_50%_34%,rgba(116,202,229,0.20),transparent_23%),linear-gradient(145deg,rgba(7,11,20,0.96),rgba(22,40,61,0.82)_48%,rgba(4,5,10,0.98))] shadow-[18px_24px_54px_rgba(0,0,0,0.22)]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(143,222,244,0.26),transparent_14%),radial-gradient(circle_at_50%_60%,rgba(255,255,255,0.08),transparent_30%)]" />
+          <div className="absolute left-1/2 top-1/2 h-40 w-28 -translate-x-1/2 -translate-y-1/2 rounded-t-full border border-[rgba(143,222,244,0.32)] bg-[linear-gradient(180deg,rgba(143,222,244,0.18),rgba(4,8,14,0.24))] shadow-[0_0_54px_rgba(94,188,224,0.22)]" />
+          <div className="absolute inset-x-8 bottom-16 h-20 bg-[radial-gradient(ellipse,rgba(143,222,244,0.18),transparent_68%)] blur-xl" />
+          <div className="absolute inset-5 rounded-[0.75rem] border border-white/12" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/62 to-transparent" />
+          <p className="absolute inset-x-6 bottom-7 text-center text-xs font-medium uppercase tracking-[0.22em] text-white/58">
+            Cover Reveal Soon
+          </p>
+        </div>
+        <Stack gap="sm" className="p-3 pt-6 sm:justify-center sm:pt-3">
+          <div className="flex flex-wrap gap-3">
+            <Tag className="w-fit border-[rgba(214,178,91,0.24)] bg-[rgba(214,178,91,0.10)]">
+              Coming Soon
+            </Tag>
+            <Tag className="w-fit border-foreground/14 bg-foreground/[0.03]">
+              {thirdBookLaunchWindow}
+            </Tag>
+          </div>
+          <h3 className="font-display text-3xl leading-tight text-foreground text-balance sm:text-4xl">
+            Shadows Beneath
+            <br />
+            Part II
+          </h3>
+          <p className="text-base leading-7 text-foreground/64">
+            The journey continues...
+          </p>
+          <p className="max-w-xl text-sm leading-6 text-foreground/64">
+            The next chapter of the Shadows Beneath universe is almost here.
+            A new adventure, deeper mysteries, and greater challenges await.
+          </p>
+          <p className="pt-2 text-xs font-medium uppercase tracking-[0.18em] text-foreground/46">
+            Expected Release: Launching Soon
+          </p>
+        </Stack>
+      </div>
+    </motion.article>
+  );
+}
+
 function LibraryAtmosphere() {
   const prefersReducedMotion = useReducedMotion();
 
@@ -247,6 +301,7 @@ export function WorldsScene({ className }: { className?: string }) {
                   <BookShowcaseCard {...book} />
                 </motion.div>
               ))}
+              <ThirdBookTeaserCard />
             </motion.div>
           </div>
         </Container>

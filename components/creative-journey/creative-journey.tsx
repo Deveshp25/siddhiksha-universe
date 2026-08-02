@@ -43,9 +43,9 @@ const journeyEntries: JourneyEntry[] = [
   {
     id: "age-13",
     label: "Age 13",
-    title: "Published first fantasy novel.",
+    title: "Published first book at the age of 11.",
     description:
-      "A first doorway opened, carrying young imagination into a world built from courage, wonder, and the earliest shape of a lifelong voice.",
+      "At just 11 years old, Siddhiksha became a published author, marking the beginning of her creative journey and the earliest shape of a lifelong voice.",
     icon: <BookOpen className="size-5" aria-hidden="true" />,
   },
   {

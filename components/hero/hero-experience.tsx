@@ -184,7 +184,7 @@ export function HeroExperience({ className }: { className?: string }) {
                 animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
-                Where Stories Become Worlds,
+                Creating Stories. Writing Songs. Inspiring Dreams.
               </motion.span>
               <motion.span
                 className="block"
@@ -192,7 +192,7 @@ export function HeroExperience({ className }: { className?: string }) {
                 animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                and Words Find a Voice.
+                Welcome to Siddhiksha&apos;s Creative Universe
               </motion.span>
             </DisplayHero>
             <motion.p
@@ -201,7 +201,7 @@ export function HeroExperience({ className }: { className?: string }) {
               transition={{ duration: 0.9, delay: 0.72, ease: "easeOut" }}
               className="max-w-2xl font-sans text-base leading-8 text-foreground/68 sm:text-lg"
             >
-              Author. Storyteller. Songwriter. Creative Explorer.
+              Author. Storyteller. Songwriter. Aspiring Singer.
             </motion.p>
             <motion.div
               initial={prefersReducedMotion ? false : { opacity: 0, y: 18, scale: 0.98 }}
