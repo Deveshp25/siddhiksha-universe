@@ -1,0 +1,110 @@
+@import "./theme.css";
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-cormorant-garamond);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--glow-gold), 0.055), transparent 34%),
+    linear-gradient(180deg, var(--background), color-mix(in srgb, var(--background) 94%, var(--foreground)));
+}
+
+::selection {
+  background: rgba(var(--glow-gold), 0.28);
+  color: var(--foreground);
+}
+
+section {
+  transform: translateZ(0);
+}
+
+section + section::before {
+  position: absolute;
+  inset: -8rem 0 auto;
+  height: 16rem;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 50%, rgba(var(--glow-gold), 0.08), transparent 44%),
+    linear-gradient(180deg, transparent, var(--background) 48%, transparent);
+  filter: blur(18px);
+}
+
+button,
+a,
+[role="button"] {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+article,
+[data-polish-card] {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button,
+  a,
+  [role="button"] {
+    transition-timing-function: var(--ease-luxury);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
