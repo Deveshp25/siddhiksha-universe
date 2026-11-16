@@ -264,6 +264,19 @@ export function Footer({
                 <ArrowUpRight aria-hidden="true" className="size-3.5 opacity-45 transition group-hover:opacity-100" />
               </a>
               <a
+                href="https://www.youtube.com/@SiddhikshaPatelOfficial/videos"
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  "group inline-flex min-h-11 items-center gap-2 rounded-full border border-foreground/10 bg-background/55 px-4 text-sm text-foreground/72 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(214,178,91,0.38)] hover:text-foreground hover:shadow-[0_12px_34px_rgba(214,178,91,0.10)]",
+                  focusRing,
+                )}
+              >
+                <span aria-hidden="true" className="flex size-4 items-center justify-center rounded-[0.3rem] bg-[rgba(214,178,91,0.9)] text-[0.55rem] text-background">▶</span>
+                YouTube
+                <ArrowUpRight aria-hidden="true" className="size-3.5 opacity-45 transition group-hover:opacity-100" />
+              </a>
+              <a
                 href="mailto:siddhikshapatel@gmail.com"
                 className={cn(
                   "group inline-flex min-h-11 items-center gap-2 rounded-full border border-foreground/10 bg-background/55 px-4 text-sm text-foreground/72 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(214,178,91,0.38)] hover:text-foreground hover:shadow-[0_12px_34px_rgba(214,178,91,0.10)]",
