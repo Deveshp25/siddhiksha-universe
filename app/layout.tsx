@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { fontVariables } from "@/lib/fonts";
 import { createRootMetadata, viewport } from "@/lib/seo";
 import { AppProviders } from "@/providers";
+import { Footer } from "@/components/navigation";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = createRootMetadata();
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fontVariables} h-full antialiased`}>
       <body className="min-h-full">
-        <AppProviders>{children}</AppProviders>
+        <AppProviders>
+          {children}
+          <Footer brand="Siddhiksha Universe" />
+        </AppProviders>
       </body>
     </html>
   );

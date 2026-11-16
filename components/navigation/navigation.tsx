@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Mail, Menu, Sparkles, X } from "lucide-react";
 import { motion, type HTMLMotionProps, useMotionValueEvent, useScroll } from "framer-motion";
 import type { AnchorHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import { useEffect, useState } from "react";
@@ -205,10 +205,89 @@ export function Footer({
   ...props
 }: HTMLAttributes<HTMLElement> & { brand?: ReactNode }) {
   return (
-    <footer className={cn("border-t border-foreground/10 py-12", className)} {...props}>
-      <Container className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="font-display text-2xl">{brand}</div>
-        <div className="text-sm text-foreground/60">{children}</div>
+    <footer
+      className={cn(
+        "relative isolate overflow-hidden border-t border-foreground/10 bg-background/55 py-14 backdrop-blur-xl sm:py-16",
+        className,
+      )}
+      {...props}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-48 bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,178,91,0.10),transparent_68%)]"
+      />
+      <Container>
+        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+          <div className="max-w-xl">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-background/55 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.2em] text-foreground/60">
+              <Sparkles aria-hidden="true" className="size-3.5 text-[rgba(214,178,91,0.9)]" />
+              A world of stories
+            </div>
+            <div className="font-display text-3xl leading-none text-foreground sm:text-4xl">{brand}</div>
+            <p className="mt-4 max-w-md text-sm leading-7 text-foreground/62 sm:text-base">
+              Stories, imagination, and little glimpses into the creative universe of author
+              Siddhiksha Patel.
+            </p>
+          </div>
+
+          <div className="md:justify-self-end">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/45">
+              Stay connected
+            </p>
+            <nav aria-label="Social media" className="mt-4 flex flex-wrap gap-3">
+              <a
+                href="https://www.facebook.com/share/1E6UyJ5YFc/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  "group inline-flex min-h-11 items-center gap-2 rounded-full border border-foreground/10 bg-background/55 px-4 text-sm text-foreground/72 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(214,178,91,0.38)] hover:text-foreground hover:shadow-[0_12px_34px_rgba(214,178,91,0.10)]",
+                  focusRing,
+                )}
+              >
+                <span aria-hidden="true" className="font-semibold text-[rgba(214,178,91,0.9)]">f</span>
+                Facebook
+                <ArrowUpRight aria-hidden="true" className="size-3.5 opacity-45 transition group-hover:opacity-100" />
+              </a>
+              <a
+                href="https://www.instagram.com/authorsiddhikshapatel?srtk=cmJkMWhjcTA1aHdp&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  "group inline-flex min-h-11 items-center gap-2 rounded-full border border-foreground/10 bg-background/55 px-4 text-sm text-foreground/72 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(214,178,91,0.38)] hover:text-foreground hover:shadow-[0_12px_34px_rgba(214,178,91,0.10)]",
+                  focusRing,
+                )}
+              >
+                <span aria-hidden="true" className="flex size-4 items-center justify-center rounded-[0.3rem] border border-[rgba(214,178,91,0.9)] text-[rgba(214,178,91,0.9)]">
+                  <span className="size-1.5 rounded-full border border-current" />
+                </span>
+                Instagram
+                <ArrowUpRight aria-hidden="true" className="size-3.5 opacity-45 transition group-hover:opacity-100" />
+              </a>
+              <a
+                href="mailto:siddhikshapatel@gmail.com"
+                className={cn(
+                  "group inline-flex min-h-11 items-center gap-2 rounded-full border border-foreground/10 bg-background/55 px-4 text-sm text-foreground/72 transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(214,178,91,0.38)] hover:text-foreground hover:shadow-[0_12px_34px_rgba(214,178,91,0.10)]",
+                  focusRing,
+                )}
+              >
+                <Mail aria-hidden="true" className="size-4 text-[rgba(214,178,91,0.9)]" />
+                Email
+              </a>
+            </nav>
+            <a
+              href="mailto:siddhikshapatel@gmail.com"
+              className={cn("mt-4 inline-block text-sm text-foreground/55 transition hover:text-foreground", focusRing)}
+            >
+              siddhikshapatel@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-foreground/10 pt-5 text-xs text-foreground/45 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Siddhiksha Patel. All rights reserved.</p>
+          <p className="text-foreground/38">Made with imagination, one story at a time.</p>
+        </div>
+        {children ? <div className="sr-only">{children}</div> : null}
       </Container>
     </footer>
   );
